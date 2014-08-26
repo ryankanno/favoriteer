@@ -7,6 +7,7 @@ from os.path import expanduser
 import sys
 import traceback
 from twython import TwythonStreamer
+from py_favoriteer.utilities import get_config
 
 
 __all__ = ['main']
