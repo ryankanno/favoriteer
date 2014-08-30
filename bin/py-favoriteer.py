@@ -8,6 +8,7 @@ import sys
 import traceback
 from twython import TwythonStreamer
 from py_favoriteer.utilities import get_config
+from py_favoriteer.utilities import get_config_file_from_default_locations
 
 
 __all__ = ['main']
@@ -30,8 +31,8 @@ def init_argparser():
 
 
 def do_work_son(args):
-    config_file = args.config_file or get_config_from_default_locations()
-    config = get_config(args)
+    config_file = args.config_file or get_config_path_file_default_locations()
+    config = get_config(config_file)
 
     ACCESS_KEY = config.get(CONFIG_SECTION, 'ACCESS_KEY')
     ACCESS_SECRET = config.get(CONFIG_SECTION, 'ACCESS_SECRET')

@@ -19,7 +19,7 @@ def get_config(config_file):
                 current dir, or user's home directory".format(CONFIG_FILE))
 
 
-def get_config_from_default_locations():
+def get_config_file_from_default_locations():
     curr_dir = os.path.dirname(os.path.abspath(__file__))
     config_in_curr_dir = os.path.join(curr_dir, CONFIG_FILE)
 
