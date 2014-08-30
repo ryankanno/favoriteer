@@ -9,8 +9,7 @@ from os.path import expanduser
 CONFIG_FILE = '.favoriteer.cfg'
 
 
-def get_config(args):
-    config_file = args.config_file or get_config_from_default_locations()
+def get_config(config_file):
     config = ConfigParser.SafeConfigParser()
     try:
         config.read(config_file)
