@@ -11,10 +11,10 @@ CONFIG_FILE = '.favoriteer.cfg'
 
 def get_config(config_file):
     config = ConfigParser.SafeConfigParser()
-    try:
+    if os.path.isfile(config_file):
         config.read(config_file)
         return config
-    except:
+    else:
         raise Exception("Unable to locate config file ({0}) from command line, \
                 current dir, or user's home directory".format(CONFIG_FILE))
 

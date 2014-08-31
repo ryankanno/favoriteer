@@ -31,7 +31,7 @@ def init_argparser():
 
 
 def do_work_son(args):
-    config_file = args.config_file or get_config_path_file_default_locations()
+    config_file = args.config_file or get_config_file_from_default_locations()
     config = get_config(config_file)
 
     ACCESS_KEY = config.get(CONFIG_SECTION, 'ACCESS_KEY')
