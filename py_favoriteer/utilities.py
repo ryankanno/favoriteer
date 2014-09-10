@@ -15,22 +15,19 @@ def get_config(config_file):
         config.read(config_file)
         return config
     else:
-        raise Exception("Unable to locate config file ({0}) from command line, \
-                current dir, or user's home directory".format(CONFIG_FILE))
+        raise Exception(
+            "Unable to locate config file ({0})".format(config_file))
 
 
-def get_config_file_from_default_locations():
-    curr_dir = os.path.dirname(os.path.abspath(__file__))
-    config_in_curr_dir = os.path.join(curr_dir, CONFIG_FILE)
+def get_config_file_from_default_locations(
+        default_locations=[expanduser('~')],
+        config_name=CONFIG_FILE):
 
-    home_dir = expanduser('~')
-    config_in_home_dir = os.path.join(home_dir, CONFIG_FILE)
+    for location in default_locations:
+        config_path = os.path.join(location, config_name)
+        if os.path.isfile(config_path):
+            return config_path
 
-    if os.path.isfile(config_in_curr_dir):
-        return config_in_curr_dir
-    elif os.path.isfile(config_in_home_dir):
-        return config_in_home_dir
-    else:
-        return None
+    return None
 
 # vim: filetype=python
