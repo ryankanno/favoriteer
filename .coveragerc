@@ -1,0 +1,8 @@
+[run]
+
+omit =
+    */python?.?/*
+    */site-packages/nose/*
+    */tests/*
+    py_favoriteer/twitter/__init__.py
+    py_favoriteer/__init__.py

@@ -40,3 +40,7 @@ temp
 
 # docs
 docs/_build
+
+# config files
+**/*/*.config
+**/*/*.cfg
